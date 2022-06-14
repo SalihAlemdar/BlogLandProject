@@ -1,0 +1,19 @@
+﻿@model EntityLayer.Conrete.Category
+
+@{
+    ViewBag.Title = "CategoryEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    @Html.Label("Kategori ID")
+    @Html.TextBoxFor(a => a.CategoryID, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kategori Adı")
+    @Html.TextBoxFor(a => a.CategoryName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Kategori Açıklaması")
+    @Html.TextBoxFor(a => a.CategoryDescreption, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+</form>

@@ -1,0 +1,33 @@
+﻿@model EntityLayer.Conrete.Blog
+@{
+    ViewBag.Title = "AddNewBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    @Html.Label("Blog Başlığı")
+    @Html.TextBoxFor(a => a.BlogTitle, new { @class = "form-control" })
+    @Html.ValidationMessageFor(a => a.BlogTitle)
+    <br />
+    @Html.Label("Blog Kategori")
+    @Html.DropDownListFor(a => a.CategoryID, (List<SelectListItem>)ViewBag.values, new { @class = "form-control" })
+    @Html.ValidationMessageFor(a => a.CategoryID)
+    <br />
+    @Html.Label("Blog Resimi")
+    @Html.TextBoxFor(a => a.BlogImage, new { @class = "form-control" })
+    @Html.ValidationMessageFor(a => a.BlogImage)
+    <br />
+    @Html.Label("Blog Tarihi")
+    @Html.TextBoxFor(a => a.BlogDate, new { @class = "form-control" })
+    @Html.ValidationMessageFor(a => a.BlogDate)
+    <br />
+    @Html.Label("Blog Yazarı")
+    @Html.DropDownListFor(a => a.AuthorID, (List<SelectListItem>)ViewBag.values2, new { @class = "form-control" })
+    @Html.ValidationMessageFor(a => a.AuthorID)
+    <br />
+    @Html.Label("Blog İçeriği")
+    @Html.TextAreaFor(a => a.BlogContent, 10, 20, new { @class = "form-control" })
+    @Html.ValidationMessageFor(a => a.BlogContent)
+    <br />
+    <button class="btn btn-info">Yükle</button>
+</form>

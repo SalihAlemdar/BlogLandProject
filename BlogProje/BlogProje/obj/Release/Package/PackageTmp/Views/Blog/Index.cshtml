@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layoutt.cshtml";
+}
+
+<!--Burası öne çıkan postların partial'i-->
+@Html.Action("FeaturedPosts", "Blog")
+
+<!--Burası BlogListimin partial'i-->
+@Html.Action("BlogList", "Blog")
+
+<!--Burası diğer postların partial'i-->
+@*Html.Action("OtherPosts", "Blog")*@
+
+<!--Burası MailSubsicript partial'i-->
+@Html.Action("AddMail", "MailSubscribe")
+
+<!--Burası Footer partial'i-->
+@Html.Action("Footer","About")
+

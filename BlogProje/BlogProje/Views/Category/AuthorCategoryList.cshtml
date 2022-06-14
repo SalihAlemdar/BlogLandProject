@@ -1,0 +1,133 @@
+﻿@model IEnumerable<EntityLayer.Conrete.Category>
+@{
+    ViewBag.Title = "AuthorCategoryList";
+    Layout = "~/Views/Shared/_AuthorLayout.cshtml";
+}
+
+@{string color = ""; }
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <!-- Main content -->
+    <section class="content">
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Kategoriler</h3>
+                <div class="card-tools">
+
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="card-body p-0">
+                <table class="table table-striped projects">
+                    <thead>
+                        <tr>
+                            <th style="width: 1%">
+                                ID
+                            </th>
+
+                            <th style="width: 15%">
+                                Kategori Adı
+                            </th>
+
+                            <th style="width: 30%">
+                                Aktif Yazarlar
+                            </th>
+
+                            <th style="width: 8%" class="text-center">
+                                Durum
+                            </th>
+
+                            <th style="width: 35%">
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            if (item.CategoryStatus == true)
+                            {
+                                color = "badge badge-success";
+                            }
+                            else
+                            {
+                                color = "badge badge-danger";
+                            }
+                            <tr>
+                                <td>
+                                    @item.CategoryID
+                                </td>
+
+                                <td>
+                                    @item.CategoryName
+                                </td>
+
+                                <td>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <img alt="Avatar" class="table-avatar" src="/AdminLTE-3.0.4/dist/img/avatar.png">
+                                        </li>
+
+                                        <li class="list-inline-item">
+                                            <img alt="Avatar" class="table-avatar" src="/AdminLTE-3.0.4/dist/img/avatar2.png">
+                                        </li>
+
+                                        <li class="list-inline-item">
+                                            <img alt="Avatar" class="table-avatar" src="/AdminLTE-3.0.4/dist/img/avatar3.png">
+                                        </li>
+                                    </ul>
+                                </td>
+
+                                <td class="project-state">
+                                    <span class="@color">@item.CategoryStatus</span>
+                                </td>
+
+                                <td class="project-actions text-right">
+                                    <a class="btn btn-primary btn-sm" href="/Blog/BlogByCategory/@item.CategoryID">
+                                        <i class="fas fa-folder"></i>
+                                        Yazılar
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </section>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
+        Yeni Kategori Ekle
+    </button>
+    <div class="modal" id="Modal1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Yeni Kategori Ekleme Paneli</h2>
+                </div>
+                <form action="/Category/AuthorCategoryAdd" method="post">
+                    <div class="modal-body">
+                        <label>Kategori</label>
+                        <input type="text" name="CategoryName" value="" class="form-control" />
+                        <label>Kategori Açıklama</label>
+                        <input type="text" name="CategoryDescreption" value="" class="form-control" />
+                        <br />
+                        <button class="btn btn-info">Kaydet</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

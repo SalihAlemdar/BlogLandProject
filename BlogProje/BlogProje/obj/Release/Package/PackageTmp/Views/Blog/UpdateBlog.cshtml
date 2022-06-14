@@ -1,0 +1,30 @@
+﻿@model EntityLayer.Conrete.Blog
+@{
+    ViewBag.Title = "UpdateBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    @Html.Label("Blog ID")<br />
+    @Html.TextBoxFor(a=>a.BlogID,new { @class="form-cotrol"}) <br />
+    <br />
+    @Html.Label("Blog Başlığı")
+    @Html.TextBoxFor(a => a.BlogTitle, new { @class = "form-control" })
+    <br />
+    @Html.Label("Blog Kategori")
+    @Html.DropDownListFor(a => a.CategoryID, (List<SelectListItem>)ViewBag.values, new { @class = "form-control" })
+    <br />
+    @Html.Label("Blog Resimi")
+    @Html.TextBoxFor(a => a.BlogImage, new { @class = "form-control" })
+    <br />
+    @Html.Label("Blog Tarihi")
+    @Html.TextBoxFor(a => a.BlogDate, new { @class = "form-control" })
+    <br />
+    @Html.Label("Blog Yazarı")
+    @Html.DropDownListFor(a => a.AuthorID, (List<SelectListItem>)ViewBag.values2, new { @class = "form-control" })
+    <br />
+    @Html.Label("Blog İçeriği")
+    @Html.TextAreaFor(a => a.BlogContent, 10, 20, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Güncelle</button>
+</form>

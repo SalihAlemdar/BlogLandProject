@@ -1,0 +1,69 @@
+﻿@{
+
+    ViewBag.Title = "Index";
+
+    Layout = "~/Views/Shared/_AuthorLayout.cshtml";
+
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<body class="hold-transition sidebar-mini">
+
+    <div class="wrapper">
+
+        <section class="content">
+
+            <div class="container-fluid">
+                <div class="row">
+
+                    <!-- /.col -->
+                    
+                    <div class="col-md-12">
+
+                        <div class="card">
+
+                            <div class="card-body">
+                                <h2 style="text-align: center">YAZAR PROFİL BİLGİLERİ</h2>
+                            </div>
+
+                        </div>
+
+                        <!-- /.nav-tabs-custom -->
+
+                    </div>
+
+                    <div class="col-md-12">
+
+                        <div class="card">
+
+                            <div class="card-body">
+                                @Html.Action("Partial1", "User")
+                            </div>
+
+                        </div>
+
+                        <!-- /.nav-tabs-custom -->
+
+                    </div>
+
+                    <!-- /.col -->
+
+                </div>
+
+                <!-- /.row -->
+
+            </div><!-- /.container-fluid -->
+
+        </section>
+
+        <!-- /.content -->
+
+    </div>
+
+</body>
+
+</html>
+

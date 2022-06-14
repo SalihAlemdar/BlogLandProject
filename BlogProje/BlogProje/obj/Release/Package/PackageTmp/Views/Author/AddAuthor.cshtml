@@ -1,0 +1,35 @@
+﻿@model EntityLayer.Conrete.Author
+
+@{
+    ViewBag.Title = "AddAuthor";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    @Html.Label("Yazar Adı ve Soyadı")
+    @Html.TextBoxFor(a => a.AuthorName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Blog Resmi")
+    @Html.TextBoxFor(a => a.AuthorImage, new { @class = "form-control" })
+    <br />
+    @Html.Label("Yazar Yetenekleri")
+    @Html.TextBoxFor(a => a.AboutShort, new { @class = "form-control" })
+    <br />
+    @Html.Label("Yazar Statüsü")
+    @Html.TextBoxFor(a => a.AuthorTitle, new { @class = "form-control" })
+    <br />
+    @Html.Label("Mail Adresi")
+    @Html.TextBoxFor(a => a.Mail, new { @class = "form-control" })
+    <br />
+    @Html.Label("Şifre")
+    @Html.TextBoxFor(a => a.Password, new { @class = "form-control" })
+    <br />
+    @Html.Label("Telefon Numarası")
+    @Html.TextBoxFor(a => a.PhoneNumber, new { @class = "form-control" })
+    <br />
+    @Html.Label("Hakkında")
+    @Html.TextAreaFor(a => a.AuthorAbout, 10, 20, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Yazarı Oluştur</button>
+</form>
+

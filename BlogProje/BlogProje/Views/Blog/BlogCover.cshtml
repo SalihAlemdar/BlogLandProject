@@ -1,0 +1,50 @@
+﻿@model IEnumerable<EntityLayer.Conrete.Blog>
+
+
+@{int dk = 1; }
+@{string casename = ""; }
+@foreach (var item in Model)
+{
+    dk = item.BlogContent.Length;
+
+    if (dk >= 1500)
+    {
+        casename = "15 dk";
+    }
+    if (dk >= 1000 && dk <= 1499)
+    {
+        casename = " 12 dk";
+    }
+    if (dk >= 500 && dk <= 999)
+    {
+        casename = "10 dk";
+    }
+    if (dk >= 1 && dk <= 499)
+    {
+        casename = "5 dk";
+    }
+}
+
+
+@foreach (var item in Model)
+{
+
+<div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('@item.BlogImage');">
+    <div class="container">
+        <div class="row same-height justify-content-center">
+            <div class="col-md-12 col-lg-10">
+                <div class="post-entry text-center">
+                    <span class="post-category text-white bg-success mb-3">@item.Category.CategoryName</span>
+                    <h1 class="mb-4"><a href="#">@item.BlogTitle</a></h1>
+                    <div class="post-meta align-items-center text-center">
+                        <figure class="author-figure mb-0 mr-3 d-inline-block"><img src="@item.Author.AuthorImage" alt="Image" class="img-fluid"></figure>
+                        <span class="d-inline-block mt-1">@item.Author.AuthorName</span>
+                        <span>&nbsp;-&nbsp; @(((DateTime)item.BlogDate).ToString("dd-MMM-yyyy"))</span>
+                        <br /><br />
+                        <span class="d-inline-block mt-1">Tahmini Okuma süresi @casename</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>}
